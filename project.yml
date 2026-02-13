@@ -1,0 +1,61 @@
+name: FreeUpSpace
+options:
+  bundleIdPrefix: com.freeupspace
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+
+packages:
+  CleanupEngine:
+    path: Packages/CleanupEngine
+  Permissions:
+    path: Packages/Permissions
+  SharedUtilities:
+    path: Packages/SharedUtilities
+
+targets:
+  FreeUpSpace:
+    type: application
+    platform: macOS
+    sources:
+      - FreeUpSpace
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.freeupspace.app
+        PRODUCT_NAME: FreeUpSpace
+        INFOPLIST_FILE: FreeUpSpace/Info.plist
+        CODE_SIGN_ENTITLEMENTS: FreeUpSpace/FreeUpSpace.entitlements
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_APP_SANDBOX: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        COMBINE_HIDPI_IMAGES: YES
+        GENERATE_INFOPLIST_FILE: NO
+        LD_RUNPATH_SEARCH_PATHS:
+          - $(inherited)
+          - "@executable_path/../Frameworks"
+    dependencies:
+      - package: CleanupEngine
+      - package: Permissions
+      - package: SharedUtilities
+
+  CleanupEngineTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - Tests/CleanupEngineTests
+    dependencies:
+      - target: FreeUpSpace
+      - package: CleanupEngine
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.freeupspace.cleanupengine-tests
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/FreeUpSpace.app/Contents/MacOS/FreeUpSpace"

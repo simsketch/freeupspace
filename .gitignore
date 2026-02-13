@@ -1,0 +1,21 @@
+# Build
+build/
+.build/
+DerivedData/
+
+# Xcode
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+xcuserdata/
+
+# Distribution artifacts
+Distribution/*.dmg
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Swift Package Manager
+.swiftpm/
+Packages/*/Package.resolved
