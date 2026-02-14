@@ -284,7 +284,8 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					F7DDA15C1AADAEA6973A0876 = {
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 8836WUYZD5;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -374,9 +375,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FreeUpSpace/FreeUpSpace.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application: a2zCreative, LLC (8836WUYZD5)";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8836WUYZD5;
 				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = FreeUpSpace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -546,9 +550,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FreeUpSpace/FreeUpSpace.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application: a2zCreative, LLC (8836WUYZD5)";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8836WUYZD5;
 				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = FreeUpSpace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
