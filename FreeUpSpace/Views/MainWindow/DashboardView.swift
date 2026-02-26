@@ -259,8 +259,17 @@ struct DashboardView: View {
             Button {
                 appState.quickClean()
             } label: {
-                Label("Clean Safe Items", systemImage: "checkmark.shield")
+                if appState.isCleaning {
+                    HStack(spacing: 6) {
+                        ProgressView()
+                            .controlSize(.small)
+                        Text("Cleaning...")
+                    }
                     .frame(maxWidth: 200)
+                } else {
+                    Label("Clean Safe Items", systemImage: "checkmark.shield")
+                        .frame(maxWidth: 200)
+                }
             }
             .buttonStyle(.borderedProminent)
             .tint(.green)
@@ -273,8 +282,17 @@ struct DashboardView: View {
                     appState.cleanSelected()
                 }
             } label: {
-                Label("Clean Selected (\(ByteFormatter.shared.formatPrecise(appState.totalSelectedSize)))", systemImage: "trash")
+                if appState.isCleaning {
+                    HStack(spacing: 6) {
+                        ProgressView()
+                            .controlSize(.small)
+                        Text("Cleaning...")
+                    }
                     .frame(maxWidth: 200)
+                } else {
+                    Label("Clean Selected (\(ByteFormatter.shared.formatPrecise(appState.totalSelectedSize)))", systemImage: "trash")
+                        .frame(maxWidth: 200)
+                }
             }
             .buttonStyle(.bordered)
             .disabled(appState.isScanning || appState.isCleaning || appState.totalSelectedSize == 0)

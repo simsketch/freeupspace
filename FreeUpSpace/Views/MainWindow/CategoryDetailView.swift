@@ -89,7 +89,15 @@ struct CategoryDetailView: View {
                     appState.cleanSelected()
                 }
             } label: {
-                Label("Clean Selected", systemImage: "trash")
+                if appState.isCleaning {
+                    HStack(spacing: 6) {
+                        ProgressView()
+                            .controlSize(.small)
+                        Text("Cleaning...")
+                    }
+                } else {
+                    Label("Clean Selected", systemImage: "trash")
+                }
             }
             .buttonStyle(.borderedProminent)
             .disabled(appState.isCleaning || category.selectedSize == 0)
