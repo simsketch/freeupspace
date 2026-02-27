@@ -33,7 +33,7 @@ fi
 
 echo "Verifying code signature..."
 codesign --verify --deep --strict "$APP_PATH"
-codesign -dvv "$APP_PATH" 2>&1 | head -5
+codesign -dvv "$APP_PATH" 2>&1 | head -5 || true
 
 # Create DMG
 echo ""
